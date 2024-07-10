@@ -22,7 +22,7 @@
             </a>
           </li>
           <li class="navbar__item">
-            <a href="#" class="navbar__link">
+            <a href="/html/collection.html" class="navbar__link">
               <img src="/assets/icons/collection.svg" />
               <i data-feather="folder"></i><span>Collection</span></a>
           </li>
@@ -40,13 +40,17 @@
       </nav>
     </div>
 
-    <div class="container">
+    <div class="search-box-container">
       <div class="search-box">
         <i class="bx bx-search"></i>
         <input type="text" placeholder="Search a car" />
       </div>
+      <img class="add-car-icon" src="/assets/icons/add-car.svg" />
+  </div>
 
-      <div class="images">
+
+  <div class="container">
+      <div class="images" id="parentDiv">
         <div class="image-box" data-name="porsche">
           <img src="/assets/porsche-picture.png" alt="porsche" />
           <h6>Porsche</h6>
@@ -58,8 +62,9 @@
           <h6>McLaren 765LT</h6>
           <button class="download-png-btn">Download (PNG)</button>
         </div>
+
       </div>
-    </div>
+  </div>
 
     <div id="modal" class="modal">
       <span class="close">&times;</span>

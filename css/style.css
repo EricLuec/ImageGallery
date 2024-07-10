@@ -82,19 +82,29 @@
 
 .container {
   position: relative;
-  min-height: 100vh;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-.container .search-box {
+.search-box-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.search-box {
+    flex-grow: 1;
+    align-items: center;
   position: relative;
   height: 50px;
   max-width: 450px;
-  margin: 0 auto;
-  margin-bottom: 40px;
+  margin: 0 10px;
 }
 
 .search-box input {
@@ -139,16 +149,12 @@
   margin: 12px;
 }
 
-.images .image-box img {
+.car-pic {
   height: 100%;
   width: 100%;
   border-radius: 6px;
   transition: transform 0.2s linear;
   cursor: pointer;
-}
-
-.image-box:hover img {
-  transform: scale(1.05);
 }
 
 .image-box h6 {
@@ -164,6 +170,21 @@
   font-weight: 400;
   text-transform: capitalize;
 }
+
+.like-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 5px;
+    width: 30px; 
+    height: 30px; 
+    z-index: 2;
+    cursor: pointer;
+}
+
+.like-icon:hover {
+    transform: scale(1.15);
+}  
 
 .download-png-btn,
 .download-cr2-btn {
@@ -219,4 +240,10 @@
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+}
+
+.add-car-icon {
+    width: 60px; 
+    height: 60px;
+    cursor: pointer;
 }
