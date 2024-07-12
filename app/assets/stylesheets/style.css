@@ -80,7 +80,7 @@
   transition: 500ms ease all;
 }
 
-.container {
+.outer-container {
   position: relative;
   max-width: 1200px;
   width: 100%;
@@ -130,23 +130,20 @@
   transform: translateY(-50%);
 }
 
-.container .images .image-box {
+.card-container {
   position: relative;
   height: 350px;
   width: 280px;
   border-radius: 8px;
   overflow: hidden;
+  margin: 12px;
 }
 
-.images {
+.inner-container {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.images .image-box {
-  margin: 12px;
 }
 
 .car-pic {
@@ -157,7 +154,7 @@
   cursor: pointer;
 }
 
-.image-box h6 {
+.title-h6 {
   background-color: gray;
   border-radius: 5px;
   padding-left: 4px;
@@ -169,6 +166,7 @@
   font-size: 18px;
   font-weight: 400;
   text-transform: capitalize;
+  z-index: 1;
 }
 
 .like-icon {

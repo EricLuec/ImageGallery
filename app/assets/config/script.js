@@ -73,52 +73,52 @@ function changeImage() {
     }
 }
 
-// Create new car-container with attributes based on input in form
-document.getElementById('inputForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+// function to add a new car card, adds css of class "card-container" and creates card where id="add-card"
+function newCar() {
+    // <img> und <h6> User inputs
+    const h6UserInput = document.getElementById("h6Text").value;
+    const carImageInput = document.getElementById("carImage");
+    const carImageFile = carImageInput.files[0];
 
-    let h6Text = document.getElementById('h6Text').value;
-    let imgUpload = document.getElementById('carImage').files[0]; 
-
-    if (!imgUpload) {
-        console.error('No file selected');
+    if (!carImageFile) {
+        alert("Please select at least one image.");
         return;
     }
 
-    let reader = new FileReader();
-    reader.onload = function(e) {
-        let images = document.createElement('div');
-        images.className = 'image-box';
-        images.dataset.name = h6Text.toLowerCase();
+    // <div> create & style
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("card-container");
 
-        let carImg = document.createElement('img');
-        carImg.src = e.target.result;
-        carImg.alt = h6Text;
+    // <h6> create & style
+    const newH6 = document.createElement("h6");
+    newH6.textContent = h6UserInput;
+    newH6.classList.add("title-h6");
 
-        let h6 = document.createElement('h6');
-        h6.textContent = h6Text;
-
-        let likeIcon = document.createElement('img');
-        likeIcon.src = 'assets/like-icon-unliked.png';
-
-        let downloadButton = document.createElement('button');
-        downloadButton.className = 'download-png-btn';
-        downloadButton.textContent = 'Download (PNG)';
-
-        images.appendChild(carImg);
-        images.appendChild(h6);
-        images.appendChild(likeIcon);
-        images.appendChild(downloadButton);
-
-        document.getElementById('parentDiv').appendChild(images);
-
-        console.log('Car added successfully');
-        document.getElementById('inputForm').reset();
+    // <img> create, style & set src
+    const newImg = document.createElement("img");
+    newImg.classList.add("car-pic");
+    
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        newImg.src = e.target.result;
     };
+    reader.readAsDataURL(carImageFile);
 
-    reader.onerror = function() {
-        console.error('Error reading file');
-    };
+    // <button> create & style
+    const newDownloadBtn = document.createElement("button");
+    newDownloadBtn.textContent = "Download (PNG)"
+    newDownloadBtn.classList.add("download-png-btn");
 
-    reader.readAsDataURL(imgUpload);
-});
+    // <img>, <h6> and <button> add to div
+    newDiv.appendChild(newImg);
+    newDiv.appendChild(newH6);
+    newDiv.appendChild(newDownloadBtn);
+
+    // <div> append to container with id="add-card"
+    const div = document.getElementById("add-card");
+    div.appendChild(newDiv);
+
+    // <img> and <h6> clear input field
+    document.getElementById("h6Text").value = '';
+    carImageInput.value = '';
+}
