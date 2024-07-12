@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div class="search-box-container">
+      <div class="search-box">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search a car" />
+      </div>
+      <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
+    </div>
+
+    <div class="outer-container">
+      <div class="inner-container" id="add-card">
+        <div class="card-container" data-name="porsche">
+  <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>        
+          <h6 class="title-h6">Porsche</h6>
+          <button class="download-png-btn">Download (PNG)</button>
+        </div>
+        <div class="card-container" data-name="mclaren">
+          <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>
+          <h6 class="title-h6">McLaren 765LT</h6>
+          <button class="download-png-btn">Download (PNG)</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modal-img" />
+    </div>
+
+    <%= javascript_include_tag 'script' %>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+
+
+    <div class="search-box-container">
+        <div class="search-box">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search a car" />
+        </div>
+        <img class="add-car-icon" src="/app/assets/images/icons/add-car.svg" />
+    </div>
+
+    <!-- Form to add new car to collection -->
+    <form id="inputForm">
+
+      <label for="h6Text">Name & model:
+          <input type="text" id="h6Text" name="h6Text" required>
+      </label>
+      <br>
+
+      <label>Picture of car:
+          <input id="carImage" name="carImage" type="file" size="50" accept="image/*">
+      </label>
+      
+      <button type="submit" class="addButton">Add car</button>
+  </form>
+
+
+
+  <div class="outer-container">
+      <div class="inner-container" id="add-card" >
+
+          <div class="card-container" data-name="porsche">
+               <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>
+              <h6 class="title-h6">Porsche</h6>
+              <button class="download-png-btn">Download (PNG)</button>
+          </div>
+          <div class="card-container" data-name="porsche">
+               <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>
+              <h6 class="title-h6">Porsche</h6>
+              <button class="download-png-btn">Download (PNG)</button>
+          </div>
+          
+      </div>
+  </div>
+          
+    <%= javascript_include_tag 'script' %>
+  </body>
+</html>
