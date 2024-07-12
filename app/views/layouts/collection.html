@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta data-name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
         <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
         <title>Collection</title>
       </head>  <body>
@@ -15,28 +15,25 @@
       <nav class="navbar">
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="#" class="navbar__link">
-              <img src="/assets/icons/home.svg" />
+            <a href="/index.html" class="navbar__link">
+              <img src="/app/assets/images/icons/home.svg" />
               <i data-feather="home"></i><span>Home</span>
             </a>
           </li>
           <li class="navbar__item">
             <a href="/html/collection.html" class="navbar__link">
-              <img src="/assets/icons/collection.svg" />
-              <i data-feather="folder"></i><span>Collection</span></a
-            >
+              <img src="/app/assets/images/icons/collection.svg" />
+              <i data-feather="folder"></i><span>Collection</span></a>
           </li>
           <li class="navbar__item">
             <a href="#" class="navbar__link">
-              <img src="/assets/icons/settings.svg" />
-              <i data-feather="settings"></i><span>Account</span></a
-            >
+              <img src="/app/assets/images/icons/settings.svg" />
+              <i data-feather="settings"></i><span>Account</span></a>
           </li>
           <li class="navbar__item">
             <a href="#" class="navbar__link">
-              <img src="/assets/icons/help.svg" />
-              <i data-feather="help-circle"></i><span>Help</span></a
-            >
+              <img src="/app/assets/images/icons/help.svg" />
+              <i data-feather="help-circle"></i><span>Help</span></a>
           </li>
         </ul>
       </nav>
@@ -47,10 +44,13 @@
             <i class="bx bx-search"></i>
             <input type="text" placeholder="Search a car" />
         </div>
-        <img class="add-car-icon" src="/assets/icons/add-car.svg" />
+        <img class="add-car-icon" src="/app/assets/images/icons/add-car.svg" />
     </div>
 
     <!-- Form to add new car to collection -->
+
+    
+
     <form id="inputForm">
         <label for="h6Text">Name & model:
             <input type="text" id="h6Text" name="h6Text" required>
@@ -59,22 +59,24 @@
         <label>Picture of car:
             <input id="carImage" name="carImage" type="file" size="50" accept="image/*">
         </label>
-        <button type="submit">Add car</button>
+        <button type="submit" class="addButton">Add car</button>
     </form>
+
+
+
 
     <div class="container">
         <div class="images" id="parentDiv">
 
             <div class="image-box" data-name="porsche">
-                <img class="car-pic" src="/assets/porsche-picture.png" alt="porsche" />
+                <img class="car-pic" src="/app/assets/images/porsche-picture.png" alt="porsche" />
                 <h6>Porsche</h6>
-                <img class="like-icon" src="/assets/icons/not-liked.svg" id="like-icon-change" onclick="changeImage()"/>
                 <button class="download-png-btn">Download (PNG)</button>
             </div>
             
         </div>
     </div>
           
-    <script src="/js/script.js"></script>
+    <script src="/app/assets/config/script.js"></script>
   </body>
 </html>

@@ -32,7 +32,7 @@ images.forEach(image => {
 
     image.querySelector('.download-png-btn').addEventListener('click', () => {
         const link = document.createElement('a');
-        link.href = image.querySelector('img').src.replace(/\.cr2$/, '.png'); // Assuming the PNG version has the same name but different extension
+        link.href = image.querySelector('img').src.replace(/\.cr2$/, '.png'); 
         link.download = `${image.querySelector('img').alt}.png`;
         document.body.appendChild(link);
         link.click();
@@ -41,7 +41,7 @@ images.forEach(image => {
 
     image.querySelector('.download-cr2-btn').addEventListener('click', () => {
         const link = document.createElement('a');
-        link.href = image.querySelector('img').src.replace(/\.png$/, '.cr2'); // Assuming the CR2 version has the same name but different extension
+        link.href = image.querySelector('img').src.replace(/\.png$/, '.cr2'); 
         link.download = `${image.querySelector('img').alt}.cr2`;
         document.body.appendChild(link);
         link.click();
