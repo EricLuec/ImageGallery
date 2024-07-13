@@ -169,6 +169,39 @@
   z-index: 1;
 }
 
+.delete-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #303030;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 0;
+}
+
+.delete-btn:hover {
+  background-color: #505050;
+}
+
+.trash-icon {
+  width: 16px;
+  height: 16px;
+}
+
 .like-icon {
     position: absolute;
     bottom: 10px;

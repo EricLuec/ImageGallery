@@ -25,11 +25,17 @@
             <% if car.image.attached? %>
               <%= image_tag car.image, class: 'car-pic', alt: car.brand %>
             <% else %>
-              <%= image_tag 'default-car.png', class: 'car-pic', alt: 'default' %>
+              <%= image_tag 'icons/image.svg', class: 'car-pic', alt: 'default' %>
             <% end %>
-            <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
-            <button class="download-png-btn">Delete</button>
-            <button class="download-png-btn">Download (PNG)</button>
+            <div class="card-content">
+              <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
+              <%= link_to car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-link' do %>
+                <button class="delete-btn">
+                  <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+                </button>
+              <% end %>
+              <button class="download-png-btn">Download (PNG)</button>
+            </div>
           </div>
         <% end %>
       </div>
