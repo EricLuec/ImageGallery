@@ -25,10 +25,10 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.save
-        format.html { redirect_to root_path, notice: "Car was successfully created." }
+        format.html { redirect_to car_url(@car), notice: "Car was successfully created." }
         format.json { render :show, status: :created, location: @car }
       else
-        format.html { render 'home/index', status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +65,12 @@ class CarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def car_params
-      params.require(:car).permit(:brand, :model, :likes, :image)
+      params.require(:car).permit(:brand, :model, :likes)
     end
+
+  private
+
+  def car_params
+    params.require(:car).permit(:brand, :model, :likes, :image)
+  end
 end
