@@ -1,3 +1,6 @@
+
+<div id='form-body'>
+<h1>New car</h1>
 <%= form_with(model: car, local: true, html: { class: 'form' }) do |form| %>
   <% if car.errors.any? %>
     <div id="error_explanation">
@@ -29,3 +32,10 @@
     <%= form.submit 'Add', class: 'form__input' %>
   </div>
 <% end %>
+<br>
+
+<div class"actions">
+  <%= link_to "Back to cars", cars_path %>
+</div>
+
+</div>

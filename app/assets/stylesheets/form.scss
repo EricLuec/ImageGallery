@@ -10,6 +10,18 @@
   text-decoration: none;
 }
 
+#form-body{
+    color: #303030;
+    font-family: 'Inter', sans-serif;
+    min-height: 60vh;
+    width: 100%;
+    padding: 20px; /* Hinzugefügtes Padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Zentriert den Inhalt horizontal */
+}
+
 .container {
   width: 100%;
   max-width: 768px;
