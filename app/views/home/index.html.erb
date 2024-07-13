@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'script.js', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar">
+      <!-- Navigation bar content -->
+    </div>
+
     <div class="search-box-container">
       <div class="search-box">
         <i class="bx bx-search"></i>
         <input type="text" placeholder="Search a car" />
       </div>
-      <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
+      <%= link_to image_tag('icons/add-car.svg', class: 'add-car-icon'), new_car_path %>
     </div>
 
     <div class="outer-container">
       <div class="inner-container" id="add-card">
-        <div class="card-container" data-name="porsche">
-  <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>        
-          <h6 class="title-h6">Porsche</h6>
-          <button class="download-png-btn">Download (PNG)</button>
-        </div>
-        <div class="card-container" data-name="mclaren">
-          <%= image_tag 'porsche-picture.png', class: 'car-pic', alt: 'porsche' %>
-          <h6 class="title-h6">McLaren 765LT</h6>
-          <button class="download-png-btn">Download (PNG)</button>
-        </div>
+        <% @cars.each do |car| %>
+          <div class="card-container" data-name="<%= car.brand.downcase %>">
+            <% if car.image.attached? %>
+              <%= image_tag car.image, class: 'car-pic', alt: car.brand %>
+            <% else %>
+              <%= image_tag 'default-car.png', class: 'car-pic', alt: 'default' %>
+            <% end %>
+            <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
+            <button class="download-png-btn">Download (PNG)</button>
+          </div>
+        <% end %>
       </div>
     </div>
 
