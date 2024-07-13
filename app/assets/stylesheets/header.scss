@@ -55,7 +55,9 @@
 }
 
 .navbar__link:hover svg {
-  stroke: #c4151c;
+  background-color: white;
+  opacity: 0.4;
+  padding: 2rem;
 }
 
 .navbar:not(:hover) .navbar__link:focus,
