@@ -1,8 +1,7 @@
-<%= form_with(model: car, local: true) do |form| %>
+<%= form_with(model: car, local: true, html: { class: 'form' }) do |form| %>
   <% if car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
-
       <ul>
         <% car.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,26 +11,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
+    <%= form.text_field :brand, placeholder: 'Brand', class: 'form__input' %>
+    <%= form.label :brand, class: 'form__label' %>
   </div>
 
   <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
+    <%= form.text_field :model, placeholder: 'Model', class: 'form__input' %>
+    <%= form.label :model, class: 'form__label' %>
   </div>
 
   <div class="field">
-    <%= form.label :likes %>
-    <%= form.number_field :likes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class: 'form__input' %>
+    <%= form.label :image, class: 'form__label' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Add', class: 'form__input' %>
   </div>
 <% end %>

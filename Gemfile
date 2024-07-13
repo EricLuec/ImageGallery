@@ -14,6 +14,11 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
+gem 'cssbundling-rails'
+
+gem 'sass-rails', '~> 6.0'
+
+gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
