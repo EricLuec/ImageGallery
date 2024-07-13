@@ -1,0 +1,22 @@
+<p>
+  <strong>Brand:</strong>
+  <%= @car.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @car.model %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @car.likes %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @car.image if @car.image.attached? %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
