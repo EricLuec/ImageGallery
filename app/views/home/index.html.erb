@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'script.js', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
   </head>
@@ -29,11 +30,10 @@
             <% end %>
             <div class="card-content">
               <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
-              <%= link_to car, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-link' do %>
-                <button class="delete-btn">
+                 <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
                   <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+                   <% end %>
                 </button>
-              <% end %>
               <button class="download-png-btn">Download (PNG)</button>
             </div>
           </div>
@@ -46,6 +46,7 @@
       <img class="modal-content" id="modal-img" />
     </div>
 
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'script' %>
   </body>
 </html>
