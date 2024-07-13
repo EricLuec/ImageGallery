@@ -3,7 +3,6 @@ class Car < ApplicationRecord
 
   validates :brand, presence: true
   validates :model, presence: true
-  validates :likes, presence: true
-  validates :image, presence: { message: 'Image must be attached' }
+  validates :image, presence: { message: 'must be attached' }
   end
   
