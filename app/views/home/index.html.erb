@@ -16,7 +16,9 @@
         <i class="bx bx-search"></i>
         <input type="text" placeholder="Search a car" />
       </div>
-      <%= link_to image_tag('icons/add-car.svg', class: 'add-car-icon'), new_car_path %>
+      <%= link_to new_car_path do %>
+        <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
+      <% end %>
     </div>
 
     <div class="outer-container">
@@ -33,7 +35,6 @@
                  <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
                   <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
                    <% end %>
-                </button>
               <button class="download-png-btn">Download (PNG)</button>
             </div>
           </div>
