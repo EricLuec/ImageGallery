@@ -32,10 +32,10 @@
             <% end %>
             <div class="card-content">
               <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
-                 <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
-                  <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
-                   <% end %>
-              <button class="download-png-btn">Download (PNG)</button>
+              <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
+                <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+              <% end %>
+              <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
             </div>
           </div>
         <% end %>
