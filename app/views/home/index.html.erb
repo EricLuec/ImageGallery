@@ -11,21 +11,20 @@
       <!-- Navigation bar content -->
     </div>
 
-    
     <div class="search-box-container">
-    <div class="search-box">
-      <i class="bx bx-search"></i>
-      <%= form_with url: search_cars_path, method: :get, local: true do |form| %>
-        <%= form.text_field :query, placeholder: "Search a car", value: params[:query] %>
-        </div>
-        <div class="actions">
-        <%= form.submit "Search", class: "form__input" %>
-        </div>
+      <div class="search-box">
+        <i class="bx bx-search"></i>
+        <%= form_with url: search_cars_path, method: :get, local: true do |form| %>
+          <%= form.text_field :query, placeholder: "Search a car", value: params[:query] %>
+          <div class="actions">
+            <%= form.submit "Search", class: "form__input" %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to new_car_path do %>
+        <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
       <% end %>
-    <%= link_to new_car_path do %>
-      <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
-    <% end %>
-  </div>
+    </div>
 
     <div class="outer-container">
       <div class="inner-container" id="add-card">
@@ -38,10 +37,16 @@
             <% end %>
             <div class="card-content">
               <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
-              <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
-                <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
-              <% end %>
-              <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+              <div class="bottom-actions">
+                <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
+                  <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+                <% end %>
+                <%= button_to like_car_path(car), method: :patch, class: 'like-btn', form_class: 'like-form' do %>
+                  <%= image_tag 'icons/not-liked.svg', class: 'like-icon' %>
+                <% end %>
+                <h1><%= car.likes %></h1>
+                <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+              </div>
             </div>
           </div>
         <% end %>

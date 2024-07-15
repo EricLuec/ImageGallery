@@ -15,10 +15,15 @@
       <% end %>
       <div class="card-content">
         <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
-        <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
-          <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
-        <% end %>
-        <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+        <div class="bottom-actions">
+          <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
+            <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+          <% end %>
+          <%= button_to like_cars_path(car), method: :patch, class: 'like-btn', form_class: 'like-form' do %>
+            <%= image_tag 'icons/not-liked.svg', class: 'like-icon' %>
+          <% end %>
+          <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+        </div>
       </div>
     </div>
   <% end %>

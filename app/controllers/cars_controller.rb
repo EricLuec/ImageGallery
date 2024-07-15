@@ -67,6 +67,11 @@ class CarsController < ApplicationController
     end
   end
 
+  def like
+    @car = Car.find(params[:id])
+    @car.increment!(:likes)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car

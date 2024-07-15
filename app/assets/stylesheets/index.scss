@@ -1,4 +1,3 @@
-/* app/assets/stylesheets/index.scss */
 
 body {
   padding-top: 75px; /* Höhe der ursprünglichen Navbar, die entfernt wurde */
@@ -43,109 +42,62 @@ body {
   z-index: 1;
 }
 
-.delete-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #303030;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.bottom-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 20px);
+  left: 10px;
 }
 
 .delete-btn {
   background-color: red;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 20%;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  padding: 0;
-}
-
-.delete-btn:hover {
-  background-color: #505050;
-}
-
-.trash-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.like-icon {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  margin: 5px;
-  width: 30px;
-  height: 30px;
-  z-index: 2;
   cursor: pointer;
 }
 
-.like-icon:hover {
-  transform: scale(1.15);
+.delete-btn:hover{
+  background-color: #303030;
 }
 
-.download-png-btn,
-.download-cr2-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  margin: 5px;
-  padding: 5px 10px;
+.like-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.trash-icon, .like-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.download-png-btn {
   background-color: #fff;
   color: black;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-}
-
-.download-cr2-btn {
-  right: 90px;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
+  padding: 5px 10px;
   text-decoration: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.download-png-btn:hover {
+  background-color: #f0f0f0;
 }
 
 .search-box-container {
@@ -159,7 +111,6 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  margin-right: 20px;
 }
 
 .search-box i {
@@ -176,7 +127,6 @@ body {
   padding: 10px 10px 10px 40px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-right: 20px;
 }
 
 .search-box {
@@ -197,7 +147,6 @@ body {
 .actions .form__input:hover {
   background-color: #505050;
 }
-
 
 .add-car-icon {
   width: 60px;
