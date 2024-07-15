@@ -1,0 +1,26 @@
+  <head>
+    <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+<h1>Search Results</h1>
+
+<div class="outer-container">
+<div class="inner-container" id="add-card">
+  <% @cars.each do |car| %>
+    <div class="card-container" data-name="<%= car.brand.downcase %>">
+      <% if car.image.attached? %>
+        <%= image_tag car.image, class: 'car-pic', alt: car.brand %>
+      <% else %>
+        <%= image_tag 'icons/image.svg', class: 'car-pic', alt: 'default' %>
+      <% end %>
+      <div class="card-content">
+        <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
+        <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
+          <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
+        <% end %>
+        <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

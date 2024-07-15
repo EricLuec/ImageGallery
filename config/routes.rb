@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :cars
+  resources :cars do
+    collection do
+      get 'search'
+    end
+  end
   # get 'home/index'
   root 'home#index'
   get 'collection', to: 'home#collection'

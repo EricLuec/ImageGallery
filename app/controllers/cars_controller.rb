@@ -59,6 +59,14 @@ class CarsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @cars = Car.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    else
+      @cars = Car.all
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car

@@ -150,46 +150,58 @@ body {
 
 .search-box-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 20px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .search-box {
-  flex-grow: 1;
   position: relative;
-  height: 50px;
-  max-width: 450px;
-  margin-right: 100px; /* Abstand zwischen Suchleiste und Plus-Icon */
-}
-
-.search-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  background-color: #323334;
-  padding: 0 15px 0 45px;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .search-box i {
   position: absolute;
-  z-index: 2;
-  color: #999;
   top: 50%;
-  left: 15px;
-  font-size: 22px;
+  left: 10px;
   transform: translateY(-50%);
+  font-size: 20px;
+  color: #333;
 }
+
+.search-box input[type="text"] {
+  width: 300px;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.search-box {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.actions .form__input {
+  background-color: #303030;
+  color: #fff;
+  cursor: pointer;
+}
+
+.actions .form__input:hover {
+  background-color: #505050;
+}
+
 
 .add-car-icon {
   width: 60px;
   height: 60px;
   cursor: pointer;
+  margin-left: 20px;
 }

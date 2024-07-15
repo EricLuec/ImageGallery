@@ -11,15 +11,21 @@
       <!-- Navigation bar content -->
     </div>
 
+    
     <div class="search-box-container">
-      <div class="search-box">
-        <i class="bx bx-search"></i>
-        <input type="text" placeholder="Search a car" />
-      </div>
-      <%= link_to new_car_path do %>
-        <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
+    <div class="search-box">
+      <i class="bx bx-search"></i>
+      <%= form_with url: search_cars_path, method: :get, local: true do |form| %>
+        <%= form.text_field :query, placeholder: "Search a car", value: params[:query] %>
+        </div>
+        <div class="actions">
+        <%= form.submit "Search", class: "form__input" %>
+        </div>
       <% end %>
-    </div>
+    <%= link_to new_car_path do %>
+      <%= image_tag 'icons/add-car.svg', class: 'add-car-icon' %>
+    <% end %>
+  </div>
 
     <div class="outer-container">
       <div class="inner-container" id="add-card">
