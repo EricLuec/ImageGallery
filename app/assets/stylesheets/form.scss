@@ -11,7 +11,7 @@
 }
 
 #form-body{
-    color: #303030;
+    color: white;
     font-family: 'Inter', sans-serif;
     min-height: 80vh;
     width: 100%;
@@ -74,7 +74,7 @@
 
 .form__input:focus + .form__label, .form__input:not(:placeholder-shown) + .form__label {
   transform: translateY(-4.50rem) scale(1);
-  color: #303030;
+  color: white;
 }
 
 .form__input::placeholder {
@@ -102,6 +102,8 @@
   pointer-events: none;
 }
 
+
+
 .actions {
   margin-top: 1rem;
 }
@@ -110,7 +112,6 @@
   background-color: #303030;
   color: #fff;
   cursor: pointer;
-  width: 20px;
 }
 
 .actions .form__input:hover {
