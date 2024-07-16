@@ -3,7 +3,11 @@
   <nav class="links" style="--items: 5;">
     <%= link_to 'Home', root_path %>
     <%= link_to 'Collection', collection_path %>
-    <%= link_to 'Account', new_user_session_path %>
+    <% if user_signed_in? %>
+    <%= link_to 'Account', account_path  %>
+    <% else %>
+    <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
     <a href="#">Link 4</a>
     <a href="#">Link 5</a>
     <span class="line"></span>

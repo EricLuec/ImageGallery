@@ -11,9 +11,9 @@
 
   <body>
     <%= render 'home/header' %>
-    <div classname='container'>
+    <p class="alert"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
-    </div>
     <%= render 'home/footer'%>
   </body>
 </html>
