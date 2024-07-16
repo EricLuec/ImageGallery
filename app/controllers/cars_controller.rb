@@ -22,7 +22,6 @@ class CarsController < ApplicationController
   # POST /cars or /cars.json
   def create
     @car = Car.new(car_params)
-    @car.likes = 0
 
     respond_to do |format|
       if @car.save
@@ -65,11 +64,6 @@ class CarsController < ApplicationController
     else
       @cars = Car.all
     end
-  end
-
-  def like
-    @car = Car.find(params[:id])
-    @car.increment!(:likes)
   end
 
   private
