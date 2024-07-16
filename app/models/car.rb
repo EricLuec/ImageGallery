@@ -1,8 +1,6 @@
 class Car < ApplicationRecord
-  has_many :likes, as: :record, dependent: :destroy
+  has_many :likes, as: :record
   has_one_attached :image
-
-  after_initialize :set_default_likes, if: :new_record?
 
   def liked_by?(user)
     likes.where(user: user).any?
@@ -20,9 +18,4 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :image, presence: { message: 'must be attached' }
 
-  private
-
-  def set_default_likes
-    self.likes ||= 0
-  end
 end

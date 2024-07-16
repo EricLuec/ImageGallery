@@ -1,7 +1,8 @@
 <head>
 <%= stylesheet_link_tag "form", "data-turbo-track": "reload" %>  
 </head>
-<div class='form-body'>
+<div id='form-body'>
 <h1>Welcome Home, <%= current_user.email %></h1>
-<%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'link' %>
+<%= link_to 'Logout', destroy_user_session_path(user), method: :delete %>
+
 </div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :cars do
-    resource :like, only: [:update], module: :cars
+    resource :like, module: :cars
     collection do
       get 'search'
     end
