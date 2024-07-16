@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.all
+    @cars = Car.all.order(created_at: :desc)
   end
 
   # GET /cars/1 or /cars/1.json
@@ -58,8 +58,9 @@ class CarsController < ApplicationController
   def search
     if params[:query].present?
       @cars = Car.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+      .order(created_at: :desc)
     else
-      @cars = Car.all
+      @cars = Car.all.order(created_at: :desc)
     end
   end
 
