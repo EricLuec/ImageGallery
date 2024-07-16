@@ -17,7 +17,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 } %>
 
 development:
   <<: *default
@@ -79,6 +79,6 @@ test:
 #
 production:
   <<: *default
-  database: image_gallyery_production
-  username: image_gallyery
+  database: image_gallery_production
+  username: image_gallery
   password: <%= ENV["MYSITE_DATABASE_PASSWORD"] %>

@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   # GET /cars or /cars.json
   def index
@@ -21,7 +23,7 @@ class CarsController < ApplicationController
 
   # POST /cars or /cars.json
   def create
-    @car = Car.new(car_params)
+    @car = current_user.cars.build(car_params)
 
     respond_to do |format|
       if @car.save
@@ -80,4 +82,11 @@ class CarsController < ApplicationController
   def car_params
     params.require(:car).permit(:brand, :model, :likes_count, :image)
   end
+
+  def authorize_user!
+    unless @car.user == current_user
+      redirect_to root_path, alert: 'You are not authorized to perform this action.'
+    end
+  end
+
 end

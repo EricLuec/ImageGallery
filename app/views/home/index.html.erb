@@ -38,9 +38,11 @@
             <div class="card-content">
               <h6 class="title-h6"><%= car.brand %> <%= car.model %></h6>
               <div class="bottom-actions">
+              <% if car.user == current_user %>
                 <%= button_to car_path(car), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-btn' do %>
                   <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
                 <% end %>
+              <% end %>
                 <%= button_to car_like_path(car), method: :patch, class: 'like-btn', form_class: 'like-form' do %>
                   <%= image_tag car.liked_by?(current_user) ? 'icons/liked.svg' : 'icons/not-liked.svg', class: 'like-icon' %>
                 <% end %>

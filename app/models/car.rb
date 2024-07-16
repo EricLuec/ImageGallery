@@ -1,4 +1,5 @@
 class Car < ApplicationRecord
+  belongs_to :user
   has_many :likes, as: :record
   has_one_attached :image
 
