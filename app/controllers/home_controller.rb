@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     @car = Car.new
   end
 
+  def account
+  end
+
   def collection
   end
   
