@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resource :like, module: :cars
     collection do
       get 'search'
+      get 'collection', to: 'cars#collection'
+      get 'my_cars', to: 'cars#my_cars'
     end
   end
   # get 'home/index'

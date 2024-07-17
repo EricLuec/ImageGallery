@@ -5,12 +5,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Search Results</h1>
+  <h1>My Cars</h1>
 
   <div class="outer-container">
-    <div class="inner-container" id="add-card">
-      <% @cars.each do |car| %>
-        <%= render partial: 'cars/my_car', locals: { car: car } %>
+    <div class="inner-container" id="my-cars">
+      <% if @cars.present? %>
+        <% @cars.each do |car| %>
+          <%= render partial: 'my_car', locals: { car: car } %>
+        <% end %>
+      <% else %>
+        <p>No cars found.</p>
       <% end %>
     </div>
   </div>

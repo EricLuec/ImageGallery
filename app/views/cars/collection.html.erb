@@ -5,15 +5,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Search Results</h1>
-
-  <div class="outer-container">
-    <div class="inner-container" id="add-card">
-      <% @cars.each do |car| %>
-        <%= render partial: 'cars/my_car', locals: { car: car } %>
-      <% end %>
-    </div>
-  </div>
+  <h1>My Collections</h1>
+  <br/>
+  <h2><%= link_to 'My Cars', my_cars_cars_path, class: 'download-png-btn' %></h2>
+  <br/>
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'script' %>

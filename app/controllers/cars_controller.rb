@@ -1,11 +1,15 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   # GET /cars or /cars.json
   def index
     @cars = Car.all.order(created_at: :desc)
+  end
+
+  def my_cars
+    @cars = Car.where(user_id: current_user.id)
   end
 
   # GET /cars/1 or /cars/1.json

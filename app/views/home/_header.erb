@@ -2,7 +2,7 @@
 <header id="header">
   <nav class="links" style="--items: 5;">
     <%= link_to 'Home', root_path %>
-    <%= link_to 'Collection', collection_path %>
+    <%= link_to 'Collection', collection_cars_path %>
     <% if user_signed_in? %>
     <%= link_to 'Account', account_path  %>
     <% else %>
