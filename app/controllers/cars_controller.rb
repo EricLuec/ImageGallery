@@ -12,6 +12,10 @@ class CarsController < ApplicationController
     @cars = Car.where(user_id: current_user.id).order(created_at: :desc)
   end
 
+  def liked_cars
+    @cars = Car.joins(:likes).where(likes: { user_id: current_user.id }).order(created_at: :desc)
+  end
+
   # GET /cars/1 or /cars/1.json
   def show
   end

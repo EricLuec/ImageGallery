@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'collection', to: 'cars#collection'
       get 'my_cars', to: 'cars#my_cars'
+      get 'liked_cars', to: 'cars#liked_cars'
     end
   end
   # get 'home/index'

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= stylesheet_link_tag 'index', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>My liked Cars</h1>
+
+  <div class="outer-container">
+    <div class="inner-container" id="my-cars">
+      <% if @cars.present? %>
+        <% @cars.each do |car| %>
+          <%= render partial: 'my_car', locals: { car: car } %>
+        <% end %>
+      <% else %>
+        <p>No cars found.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'script' %>
+</body>
+</html>

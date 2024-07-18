@@ -10,10 +10,12 @@ class Cars::LikesController < ApplicationController
       else
         @car.like(current_user)
       end 
-
-      redirect_to request.referer || root_path
-    end
     
+    respond_to do |format|
+        format.html { redirect_to request.referer || root_path }
+        format.turbo_stream
+      end
+    end
   
     private
   
