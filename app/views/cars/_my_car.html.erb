@@ -12,11 +12,11 @@
           <%= image_tag 'icons/trash.svg', class: 'trash-icon' %>
         <% end %>
       <% end %>
-      <%= button_to car_like_path(car), method: :patch, class: 'like-btn', form_class: 'like-form' do %>
-        <%= image_tag car.liked_by?(current_user) ? 'icons/liked.svg' : 'icons/not-liked.svg', class: 'like-icon' %>
-      <% end %>
-      <h1><%= car.likes_count %></h1>
-      <%= link_to 'Download (PNG)', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
+  <%= button_to car_like_path(car), method: :patch, class: 'like-btn', form_class: 'like-form' do %>
+    <%= image_tag car.liked_by?(current_user) ? 'icons/liked.svg' : 'icons/not-liked.svg', class: 'like-icon' %>
+  <% end %>
+  <h1><%= car.likes_count %></h1>
+      <%= link_to 'Download', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
     </div>
   </div>
 </div>

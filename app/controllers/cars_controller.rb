@@ -5,11 +5,11 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.all.order(created_at: :desc)
+    @cars = Car.order(created_at: :desc)
   end
 
   def my_cars
-    @cars = Car.where(user_id: current_user.id)
+    @cars = Car.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   # GET /cars/1 or /cars/1.json

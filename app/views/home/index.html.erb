@@ -16,9 +16,7 @@
       <i class="bx bx-search"></i>
       <%= form_with url: search_cars_path, method: :get, local: true do |form| %>
         <%= form.text_field :query, placeholder: "Search a car", value: params[:query] %>
-        <div class="actions">
-          <%= form.submit "Search", class: "form__input" %>
-        </div>
+
       <% end %>
     </div>
     <%= link_to new_car_path do %>

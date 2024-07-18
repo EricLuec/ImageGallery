@@ -153,5 +153,11 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-left: 20px;
+}
 
+.add-car-icon:hover {
+  transform: scale(1.2) rotate(90deg);
+  filter: brightness(1.5);
 }
