@@ -1,4 +1,9 @@
-<h1>Editing Car</h1>
+<head>
+  <%= stylesheet_link_tag 'form', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<h1>Edit Post</h1>
 
 <%= render "form", car: @car %>
 
@@ -6,6 +11,4 @@
 
 <div>
   <%= link_to "Show this car", @car %> |
-  <%= link_to "Back to cars", cars_path %> |
-  <%= button_to "Destroy this car", @car, method: :delete %>
 </div>

@@ -13,6 +13,7 @@ class Cars::LikesController < ApplicationController
 
       redirect_to request.referer || root_path
     end
+    
   
     private
   
