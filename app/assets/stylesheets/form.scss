@@ -15,11 +15,11 @@
     font-family: 'Inter', sans-serif;
     min-height: 80vh;
     width: 100%;
-    padding: 20px; /* Hinzugefügtes Padding */
+    padding: 20px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Zentriert den Inhalt horizontal */
+    align-items: center; 
 }
 
 .container {
@@ -54,54 +54,48 @@
 }
 
 .form {
-  align-self: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #a39e9e;
 }
 
-.form__input {
-  width: clamp(120px, 50vw, 420px);
-  height: 2.5rem;
-  padding: 0 1.25rem;
-  border: 1px solid #303030;
-  border-radius: 2px;
-  margin: 0.625rem auto;
-  transition: all 250ms;
-}
-
-.form__input:focus {
-  outline: none;
-  border-top-color: rgba(0,0,0,0.1);
-}
-
-.form__input:focus + .form__label, .form__input:not(:placeholder-shown) + .form__label {
-  transform: translateY(-4.50rem) scale(1);
-  color: white;
-}
-
-.form__input::placeholder {
-  display: none;
-  color: transparent;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
-}
-
-.form__input:not(:placeholder-shown) {
-  border-top-color: rgba(0, 0, 0, 0.5);
-}
-
+/* Label Styling */
 .form__label {
-  font-size: 1rem;
-  color: #909090;
   display: block;
-  transform: translate(1.25rem,-2.5rem);
-  transform-origin: 0 0;
-  transition: all 500ms;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
-  pointer-events: none;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: large;
+  color: #333;
 }
 
+/* Input Styling */
+.form__input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+.form__input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.form__input[type="submit"]:hover {
+  background-color: #0056b3;
+}
 .link{
   color: white;
   font-size: 1rem;

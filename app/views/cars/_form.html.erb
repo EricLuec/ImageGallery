@@ -1,37 +1,70 @@
-
 <div id='form-body'>
-<h1>Car</h1>
-<%= form_with(model: car, local: true, html: { class: 'form' }) do |form| %>
-  <% if car.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
-      <ul>
-        <% car.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <h1>Car</h1>
+  <%= form_with(model: car, local: true, html: { class: 'form' }) do |form| %>
+    <% if car.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+        <ul>
+          <% car.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :brand, 'Brand', class: 'form__label' %>
+      <%= form.select :brand, @makes, { include_blank: true }, { id: 'car_brand', class: 'form__input' } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :model, 'Model', class: 'form__label' %>
+      <%= form.select :model, [], { include_blank: true }, { id: 'car_model', class: 'form__input' } %>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="field">
+      <%= form.label :image, 'Image', class: 'form__label' %>
+      <%= form.file_field :image, class: 'form__input' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Add', class: 'form__input' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.text_field :brand, placeholder: 'Brand', class: 'form__input' %>
-    <%= form.label :brand, class: 'form__label' %>
-  </div>
-
-  <div class="field">
-    <%= form.text_field :model, placeholder: 'Model', class: 'form__input' %>
-    <%= form.label :model, class: 'form__label' %>
-  </div>
-
-  <div class="field">
-    <%= form.file_field :image, class: 'form__input' %>
-    <%= form.label :image, class: 'form__label' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Add', class: 'form__input' %>
-  </div>
-<% end %>
-<br>
-
+  <br>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const brandSelect = document.getElementById("car_brand");
+    const modelSelect = document.getElementById("car_model");
+
+    brandSelect.addEventListener("change", function() {
+      const brand = brandSelect.value;
+      console.log(`Selected brand: ${brand}`); // Debugging-Ausgabe
+      fetch(`/cars/models?make=${brand}`)
+        .then(response => {
+          console.log('Fetch response:', response); // Debugging-Ausgabe
+          return response.json();
+        })
+        .then(data => {
+          console.log('Models data:', data); // Debugging-Ausgabe
+          while (modelSelect.firstChild) {
+            modelSelect.removeChild(modelSelect.firstChild);
+          }
+          data.forEach(model => {
+            const option = document.createElement("option");
+            option.value = model.Model_Name;
+            option.textContent = model.Model_Name;
+            modelSelect.appendChild(option);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching models:', error); // Debugging-Ausgabe
+        });
+    });
+  });
+</script>

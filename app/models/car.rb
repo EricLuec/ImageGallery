@@ -3,6 +3,8 @@ class Car < ApplicationRecord
   has_many :likes, as: :record
   has_one_attached :image
 
+  before_save :format_brand
+
   def liked_by?(user)
     likes.where(user: user).any?
   end
@@ -16,7 +18,12 @@ class Car < ApplicationRecord
   end
 
   validates :brand, presence: true
-  validates :model, presence: true
   validates :image, presence: { message: 'must be attached' }
+
+  private
+
+  def format_brand
+    self.brand = brand.downcase.capitalize
+  end 
 
 end

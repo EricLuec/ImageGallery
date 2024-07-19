@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get 'collection', to: 'cars#collection'
       get 'my_cars', to: 'cars#my_cars'
       get 'liked_cars', to: 'cars#liked_cars'
+      get 'models'
+    
     end
   end
   # get 'home/index'

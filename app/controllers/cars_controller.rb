@@ -1,7 +1,8 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
-  before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :set_car, only: %i[show edit update destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :load_makes, only: %i[new create edit update]
 
   # GET /cars or /cars.json
   def index
@@ -68,24 +69,24 @@ class CarsController < ApplicationController
   def search
     if params[:query].present?
       @cars = Car.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
-      .order(created_at: :desc)
+                 .order(created_at: :desc)
     else
       @cars = Car.all.order(created_at: :desc)
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car
-      @car = Car.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.require(:car).permit(:brand, :model, :likes_count)
-    end
+  def models
+    make = params[:make]
+    models_response = VpicApiService.get_models(make)
+    models = models_response['Results']
+    render json: models
+  end
 
   private
+
+  def set_car
+    @car = Car.find(params[:id])
+  end
 
   def car_params
     params.require(:car).permit(:brand, :model, :likes_count, :image)
@@ -97,4 +98,8 @@ class CarsController < ApplicationController
     end
   end
 
+  def load_makes
+    makes_response = VpicApiService.get_makes
+    @makes = makes_response['Results'].map { |make| [make['Make_Name'], make['Make_Name']] }
+  end
 end
