@@ -1,4 +1,6 @@
 class Car < ApplicationRecord
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_by_users, through: :favorites, source: :user
   belongs_to :user
   has_many :likes, as: :record
   has_one_attached :image

@@ -57,9 +57,6 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #a39e9e;
 }
 
 /* Label Styling */
@@ -68,12 +65,12 @@
   margin-bottom: 8px;
   font-weight: bold;
   font-size: large;
-  color: #333;
+  color: white;
 }
 
 /* Input Styling */
 .form__input {
-  width: 100%;
+  width: 400px;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;

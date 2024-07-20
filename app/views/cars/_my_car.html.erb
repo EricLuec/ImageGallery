@@ -19,6 +19,15 @@
     <%= image_tag car.liked_by?(current_user) ? 'icons/liked.svg' : 'icons/not-liked.svg', class: 'like-icon' %>
   <% end %>
   <h1><%= car.likes_count %></h1>
+<% if current_user.favorites.find_by(car: car) %>
+  <%= button_to unfavorite_car_path(car), method: :delete, remote: true, class: 'like-btn', id: 'favorite-button' do %>
+    <%= image_tag 'icons/unfavorite.png', class: 'like-icon' %>
+  <% end %>
+<% else %>
+  <%= button_to favorite_car_path(car), method: :post, remote: true, class: 'like-btn', id: 'favorite-button' do %>
+    <%= image_tag 'icons/favorite.svg', class: 'like-icon' %>
+  <% end %>
+<% end %>
   <%= link_to 'Download', rails_blob_path(car.image, disposition: "attachment"), class: 'download-png-btn' %>
     </div>
   </div>

@@ -7,6 +7,15 @@
 <body>
   <h1>My liked Cars</h1>
 
+    <div class="search-box-container">
+    <div class="search-box">
+      <i class="bx bx-search"></i>
+      <%= form_with url: liked_search_cars_path, method: :get, local: true do |form| %>
+        <%= form.text_field :query, placeholder: "Search in liked cars", value: params[:query] %>
+    <% end %>
+    </div>
+    </div>
+
   <div class="outer-container">
     <div class="inner-container" id="my-cars">
       <% if @cars.present? %>

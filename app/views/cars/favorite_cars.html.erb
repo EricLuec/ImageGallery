@@ -5,14 +5,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>My Cars</h1>
+  <h1>My favorite Cars</h1>
 
     <div class="search-box-container">
     <div class="search-box">
       <i class="bx bx-search"></i>
-      <%= form_with url: my_search_cars_path, method: :get, local: true do |form| %>
-        <%= form.text_field :query, placeholder: "Search in my cars", value: params[:query] %>
-      <% end %>
+      <%= form_with url: favorite_search_cars_path, method: :get, local: true do |form| %>
+        <%= form.text_field :query, placeholder: "Search in favorite cars", value: params[:query] %>
+    <% end %>
     </div>
     </div>
 

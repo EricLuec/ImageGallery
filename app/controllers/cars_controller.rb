@@ -17,6 +17,10 @@ class CarsController < ApplicationController
     @cars = Car.joins(:likes).where(likes: { user_id: current_user.id }).order(created_at: :desc)
   end
 
+  def favorite_cars
+    @cars = Car.joins(:favorites).where(favorites: { user_id: current_user.id }).order(created_at: :desc)
+  end
+
   # GET /cars/1 or /cars/1.json
   def show
   end
@@ -72,6 +76,60 @@ class CarsController < ApplicationController
                  .order(created_at: :desc)
     else
       @cars = Car.all.order(created_at: :desc)
+    end
+  end
+
+  def my_search
+    @cars = Car.where(user_id: current_user.id)
+    if params[:query].present?
+      @cars = @cars.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    else
+      @cars = Car.where(user_id: current_user.id)
+    end
+
+    @cars = @cars.order(created_at: :desc)
+    render :search
+  end
+
+
+  def liked_search
+    @cars = Car.joins(:likes).where(likes: { user_id: current_user.id })
+
+    if params[:query].present?
+      @cars = @cars.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    end
+
+    @cars = @cars.order(created_at: :desc)
+    render :search
+  end
+
+  def favorite_search
+    @cars = Car.joins(:favorites).where(favorites: { user_id: current_user.id })
+
+    if params[:query].present?
+      @cars = @cars.where('brand LIKE ? OR model LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+    end
+
+    @cars = @cars.order(created_at: :desc)
+    render :search
+  end
+
+  def favorite
+    car = Car.find(params[:id])
+    current_user.favorites.create(car: car)
+    respond_to do |format|
+      format.html { redirect_to car, notice: 'Car was favorited.' }
+      format.js   # Renders favorite.js.erb
+    end
+  end
+
+  def unfavorite
+    car = Car.find(params[:id])
+    favorite = current_user.favorites.find_by(car: car)
+    favorite.destroy if favorite
+    respond_to do |format|
+      format.html { redirect_to car, notice: 'Car was unfavorited.' }
+      format.js   # Renders unfavorite.js.erb
     end
   end
 
