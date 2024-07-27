@@ -1,0 +1,19 @@
+<turbo-stream action="replace" target="likes_count_<%= @car.id %>">
+  <template>
+    <h1 id="likes_count_<%= @car.id %>"><%= @car.likes.count %></h1>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="like_button_<%= @car.id %>">
+  <template>
+    <% if @car.liked_by?(current_user) %>
+      <%= link_to car_like_path(@car), method: :patch, remote: true, class: 'like-btn', data: { turbo: "true" }, id: "like_button_<%= @car.id %>" do %>
+        <%= image_tag 'icons/liked.svg', class: 'like-icon' %>
+      <% end %>
+    <% else %>
+      <%= link_to car_like_path(@car), method: :patch, remote: true, class: 'like-btn', data: { turbo: "true" }, id: "like_button_<%= @car.id %>" do %>
+        <%= image_tag 'icons/not-liked.svg', class: 'like-icon' %>
+      <% end %>
+    <% end %>
+  </template>
+</turbo-stream>

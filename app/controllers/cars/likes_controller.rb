@@ -12,8 +12,8 @@ class Cars::LikesController < ApplicationController
       end 
     
     respond_to do |format|
-        format.html { redirect_to request.referer || root_path }
         format.turbo_stream
+        format.html { redirect_to request.referer || root_path }
       end
     end
   

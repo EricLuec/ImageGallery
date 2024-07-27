@@ -120,6 +120,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to car, notice: 'Car was favorited.' }
       format.js   # Renders favorite.js.erb
+      format.turbo_stream
     end
   end
 
@@ -130,6 +131,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to car, notice: 'Car was unfavorited.' }
       format.js   # Renders unfavorite.js.erb
+      format.turbo_stream
     end
   end
 
